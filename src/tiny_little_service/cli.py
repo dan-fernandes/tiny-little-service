@@ -4,6 +4,8 @@ from collections.abc import Sequence
 
 import typer
 
+from tiny_little_service.main import start
+
 from . import __version__
 
 __all__ = ["main"]
@@ -18,3 +20,8 @@ def main(args: Sequence[str] | None = None) -> None:
 @cli_app.command()
 def version():
     print(__version__)
+
+
+@cli_app.command()
+def serve():
+    start()
