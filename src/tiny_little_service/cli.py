@@ -1,20 +1,20 @@
 """Interface for ``python -m tiny_little_service``."""
 
-from argparse import ArgumentParser
 from collections.abc import Sequence
+
+import typer
 
 from . import __version__
 
 __all__ = ["main"]
 
+cli_app = typer.Typer()
+
 
 def main(args: Sequence[str] | None = None) -> None:
-    """Argument parser for the CLI."""
-    parser = ArgumentParser()
-    parser.add_argument(
-        "-v",
-        "--version",
-        action="version",
-        version=__version__,
-    )
-    parser.parse_args(args)
+    cli_app()
+
+
+@cli_app.command()
+def version():
+    print(__version__)
