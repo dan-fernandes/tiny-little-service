@@ -1,0 +1,15 @@
+# Changes here will be overwritten by Copier
+_commit: 2.6.0
+_src_path: gh:DiamondLightSource/python-copier-template
+author_email: daniel.fernandes@diamond.ac.uk
+author_name: Daniel Fernandes
+description: A Tiny Little Service that does nothing.
+distribution_name: tiny-little-service
+docker: true
+docs_type: README
+git_platform: github.com
+github_org: dan-fernandes
+package_name: tiny_little_service
+pypi: false
+repo_name: tiny-little-service
+type_checker: pyright
