@@ -1,27 +1,25 @@
 """Interface for ``python -m tiny_little_service``."""
 
-from collections.abc import Sequence
-
 import typer
 
-from tiny_little_service.log import do_default_logging_setup
 from tiny_little_service.main import start
 
 from . import __version__
 
-__all__ = ["main"]
-
 cli_app = typer.Typer()
 
 
-def main(args: Sequence[str] | None = None) -> None:
-    do_default_logging_setup()
-    cli_app()
+def version_callback(value: bool):
+    if value:
+        typer.echo(__version__)
+        raise typer.Exit()
 
 
-@cli_app.command()
-def version():
-    print(__version__)
+@cli_app.callback()
+def common(
+    version: bool = typer.Option(None, "--version", callback=version_callback),
+):
+    pass
 
 
 @cli_app.command()
