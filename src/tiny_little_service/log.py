@@ -3,14 +3,23 @@ import logging
 
 class ServiceFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
-        record.service_name = "tiny_little_service"
         return super().format(record)
+
+
+class ListTagger(logging.Filter):
+    def filter(self, record):
+        record.l = getattr(record, "l", [1])
+        return True
 
 
 def do_default_logging_setup() -> None:
     logger = logging.getLogger("tiny_little_service")
     logger.setLevel(logging.DEBUG)
+
+    logger.addFilter(ListTagger())
+
     handler = logging.StreamHandler()
     handler.setLevel(logging.INFO)
-    handler.setFormatter(ServiceFormatter())
+    handler.addFilter(ListTagger())
+
     logger.addHandler(handler)
