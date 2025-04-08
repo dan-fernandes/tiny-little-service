@@ -1,6 +1,5 @@
 """Interface for ``python -m tiny_little_service``."""
 
-import logging
 from collections.abc import Sequence
 
 import typer
