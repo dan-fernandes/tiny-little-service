@@ -7,16 +7,16 @@ name = "tiny-little-service"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "License :: OSI Approved :: Apache Software License",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 description = "A Tiny Little Service that does nothing."
 dependencies = ["fastapi", "typer", "uvicorn"] # Add project dependencies here, e.g. ["click", "numpy"]
 dynamic = ["version"]
 license.file = "LICENSE"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 
 [project.optional-dependencies]
 dev = [
@@ -46,7 +46,7 @@ name = "Daniel Fernandes"
 version_file = "src/tiny_little_service/_version.py"
 
 [tool.pyright]
-typeCheckingMode = "standard"
+typeCheckingMode = "strict"
 reportMissingImports = false # Ignore missing stubs in imported modules
 
 [tool.pytest.ini_options]
