@@ -7,7 +7,7 @@ class ServiceFormatter(logging.Formatter):
 
 
 class ListTagger(logging.Filter):
-    def filter(self, record):
+    def filter(self, record: logging.LogRecord):
         record.l = getattr(record, "l", [1])
         return True
 
